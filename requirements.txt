@@ -1,0 +1,6 @@
+fastapi==0.115.13 # Core web framework
+jinja2==3.1.6 # Template engine
+python-multipart==0.0.20 # File upload support
+sse-starlette==2.3.6 # Server-Sent Events support
+uvicorn==0.34.3 # ASGI server
+arel>=0.3.0 # Hot reload for development
