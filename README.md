@@ -23,26 +23,26 @@
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd sensor-dashboard
    ```
 
 2. **Install dependencies with uv**
+
    ```bash
    # Initialize project (if needed)
    uv init
-
    # Install dependencies
    uv sync
-   ```
 
-   Or with pip:
-   ```bash
-   pip install -r requirements.txt
+   # Or with pip:
+      pip install -r requirements.txt
    ```
 
 3. **Run the application**
+
    ```bash
    # With uv
    uv run uvicorn app:app --reload --host 0.0.0.0 --port 8000
@@ -52,13 +52,14 @@
    ```
 
 4. **Open your browser**
-   ```
-   http://localhost:8000
+
+   ```bash
+      http://localhost:8000
    ```
 
 ## 📁 Project Structure
 
-```
+```bash
 environmental-dashboard/
 ├── app.py              # FastAPI application
 ├── utils.py            # Sensor data generator utility
@@ -80,13 +81,13 @@ environmental-dashboard/
 
 ## 📊 API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET | Main dashboard page |
-| `/stream` | GET | SSE endpoint for real-time data |
-| `/current` | GET | Get current sensor reading |
-| `/chart-data` | GET | Chart data for visualizations |
-| `/health` | GET | Health check endpoint |
+Endpoint | Method | Description
+----------|--------|------------
+`/` | GET | Main dashboard page
+`/stream` | GET | SSE endpoint for real-time data
+`/current` | GET | Get current sensor reading
+`/chart-data` | GET | Chart data for visualizations
+`/health` | GET | Health check endpoint
 
 ## 🎯 Sensor Data Format
 
@@ -100,6 +101,7 @@ environmental-dashboard/
 ```
 
 **Status Values:**
+
 - `normal` - All readings within acceptable range
 - `warning` - Readings approaching limits
 - `critical` - Readings outside safe parameters
@@ -107,6 +109,7 @@ environmental-dashboard/
 ## 🔧 Configuration
 
 ### Sensor Parameters (utils.py)
+
 ```python
 class SensorData:
     def __init__(self):
@@ -117,7 +120,9 @@ class SensorData:
 ```
 
 ### Development Mode
+
 Set the `DEBUG` environment variable to enable hot reload:
+
 ```bash
 export DEBUG=1
 uv uvicorn app:app --reload
@@ -126,16 +131,19 @@ uv uvicorn app:app --reload
 ## 🎨 Dashboard Features
 
 ### Real-time Display
+
 - Live temperature and humidity readings
 - Color-coded status indicators
 - Automatic connection status monitoring
 
 ### Interactive Charts
+
 - Smooth line charts for temperature and humidity trends
 - Last 20 readings displayed
 - Auto-updating with new data
 
 ### Alert System
+
 - Critical status alerts with auto-dismiss (10 seconds)
 - Visual status badges
 - Connection state indicators
@@ -143,6 +151,7 @@ uv uvicorn app:app --reload
 ## 🧪 Development
 
 ### Running in Development Mode
+
 ```bash
 # With hot reload enabled using uv
 DEBUG=1 uv run uvicorn app:app --reload --port 8000
@@ -152,9 +161,11 @@ DEBUG=1 uvicorn app:app --reload --port 8000
 
 # Production mode with uv
 uv run uvicorn app:app --host 0.0.0.0 --port 8000
+http://localhost:8000/
 ```
 
 ### Adding New Sensor Types
+
 1. Extend the `SensorData` class in `utils.py`
 2. Update the frontend template to display new data
 3. Modify chart configurations as needed
@@ -178,16 +189,19 @@ uv run uvicorn app:app --host 0.0.0.0 --port 8000
 ### Common Issues
 
 **Charts not loading:**
+
 - Check browser console for JavaScript errors
 - Ensure Chart.js CDN is accessible
 - Verify `/chart-data` endpoint is responding
 
 **SSE connection fails:**
+
 - Check network connectivity
 - Verify FastAPI server is running
 - Look for CORS issues in browser console
 
 **Hot reload not working:**
+
 - Ensure `DEBUG=1` environment variable is set
 - Check that `arel` package is installed
 - Verify file watching permissions
@@ -207,10 +221,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions or issues:
+
 - Open an issue on GitHub
 - Check the troubleshooting section above
 - Review the API documentation
 
 ---
+
+Copilot - povezava z DuckDB: https://copilot.microsoft.com/shares/ibxpd5euaiuPgDnWCoLns
 
 **Built with ❤️ using FastAPI, HTMX, and modern web technologies**

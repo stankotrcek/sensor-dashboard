@@ -60,6 +60,72 @@
         </div>
     </div>
 
+    <!-- table -->
+    <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="overflow-x-auto">
+                <table class="table table-zebra">
+                    <!-- head -->
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Job</th>
+                            <th>Favorite Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- row 1 -->
+                        <tr>
+                            <th>1</th>
+                            <td>Cy Ganderton</td>
+                            <td>Quality Control Specialist</td>
+                            <td>Blue</td>
+                        </tr>
+                        <!-- row 2 -->
+                        <tr>
+                            <th>2</th>
+                            <td>Hart Hagerty</td>
+                            <td>Desktop Support Technician</td>
+                            <td>Purple</td>
+                        </tr>
+                        <!-- row 3 -->
+                        <tr>
+                            <th>3</th>
+                            <td>Brice Swyre</td>
+                            <td>Tax Accountant</td>
+                            <td>Red</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- date picker -->
+<!--
+* Import Cally web component from CDN
+<script type="module" src="https://unpkg.com/cally"></script>
+
+* Or install as a dependency:
+npm i cally
+* and import it in JS
+import "cally";
+-->
+<div>
+
+<button popovertarget="cally-popover1" class="input input-border" id="cally1" style="anchor-name:--cally1">
+  Pick a date
+</button>
+<div popover id="cally-popover1" class="dropdown bg-base-100 rounded-box shadow-lg" style="position-anchor:--cally1">
+  <calendar-date class="cally" onchange={document.getElementById('cally1').innerText = this.value}>
+    <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
+    <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
+    <calendar-month></calendar-month>
+  </calendar-date>
+</div>
+</div>
+
     <!-- HTMX chart data fetcher -->
     <div hx-get="/chart-data" hx-trigger="sse:sensor_update" hx-target="#chart-data" hx-swap="outerHTML">
         <div id="chart-data"></div>
